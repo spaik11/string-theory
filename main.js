@@ -15,9 +15,7 @@ function exclaim(str) {
   let newStr = '';
 
   for (let i = 0; i < str.length; i++) {
-    if(str[i] === '?') {
-      newStr += '!';
-    } else if(str[i] === '.') {
+    if(str[i] === '?' || str[i] === '.') {
       newStr += '!';
     } else {
       newStr += str[i];
@@ -67,15 +65,12 @@ function crazyCase2ReturnOfCrazyCase(str) {
 
 function titleCase(str) {
   let newStr = '';
-  str = str.toLowerCase();
 
   for (let i = 0; i < str.length; i++) {
-    if(i === 0) {
+    if(i === 0 || str[i - 1] === ' ') {
       newStr += str[i].toUpperCase();
-  } else if (str[i - 1] === ' ') {
-    newStr += str[i].toUpperCase();
-  } else {
-  newStr += str[i]
+  }  else {
+      newStr += str[i].toLowerCase();
   }
 }
 return newStr;
